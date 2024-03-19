@@ -42,7 +42,7 @@ def random_number():
         f = open("demofile.txt", "a")
         #f.write(" User ")
         f.write("\n")
-        f.write("The User: " + user.name +", and their score is " + str(Guess))
+        f.write("- The User: " + user.name +", and their score is " + str(Guess))
         f.close()
 
 PG = True
@@ -61,12 +61,12 @@ while (PG == True):
 
     elif Play.lower() in ["lb"]:
        f = open("demofile.txt", "r")
-
+       print(f.read())
 
 
        #separate the data by commas and save the data to a list
        #print(f.read())
-       read_values=f.read()
+       '''read_values=f.read()
        split_values = read_values.split("-")
        LBR = 0
        for LBR in range(len(split_values)):
@@ -75,10 +75,9 @@ while (PG == True):
            if (LBU == '\n'):
                continue
            else:   
-                print(LBU, "has a score of", LBS)
+                print(LBU, "has a score of", LBS)'''
            
 
     else:
         print("You are no fun") # oh no youre no fun
         PG = False
-
