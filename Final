@@ -1,0 +1,92 @@
+import random # oh no a forbidden libary
+# oh no blank space
+class User:
+     def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+     def assign_score(self, score):
+        self.score = score
+
+     def display_properties(self):
+        print("Properties of the User:")
+        print("Name:", self.name)
+        print("Score:", self.score)
+
+
+
+def random_number():
+    #oh no blank space
+
+    Number = random.randint(1,100) #oh no the number
+    Guess = 0 #oh no the guess count
+    GuessNumber = 0 #oh no the guessnumber how could it be 
+    while (GuessNumber != Number):  #oh no the while loop
+        Guess = Guess + 1 # oh no the guess counter goes up
+        GuessNumber = (input())
+        INTB = True
+        while( INTB == True):
+            try:
+                GuessNumber = int(GuessNumber)
+                INTB = False
+            except:
+                print("Invalide Guess. Please provide a whole number.")
+                GuessNumber = (input())
+        if (GuessNumber != Number): # oh no you guessed wrong
+            print("you have guessed wrong.")# oh no printing that you got it wrong
+            if(GuessNumber > Number):# oh no you guessed higher
+                print("You have guessed higher")# oh no saying that you guessed higher
+            else: # oh no you guessed lower
+                print("You have guessed lower") # oh no saying that you guessed lower
+    print("You have guess the number in", Guess,"times")# oh no you won
+    print("Do you want to create an accont Y/N")
+    ACCRT = input()
+    if ACCRT.lower() in ["yes", "y"]:
+        print("please input your name")
+        name_input = input()
+        # Creating a user
+        user = User(name_input, 0)
+        #assign score
+        user.assign_score(Guess)
+        f = open("demofile.txt", "a")
+        #f.write(" User ")
+        f.write("\n")
+        f.write("- The User: " + user.name +", and their score is " + str(Guess))
+        f.close()
+
+PG = True
+while (PG == True):
+    print("Do you want to play a game Y/N.\nIf you want Leaderboard press LB.") # oh no asks if you want to play a game?
+    Play = input()# oh no player input
+    if Play.lower() in ["yes", "y"]: # oh no considers the input 
+        print("Do you want to play guess the number? Y/N")# oh no see if you want to actually run the code
+        play2 = input()# oh no player input
+        if play2.lower() in ["yes", "y"]: # oh no considers the input
+            print("Guess!!!!!") # oh no guess
+            random_number() # oh no it runs the intended goals of this assignment
+        else:
+            print("You are no fun") # oh no youre no fun
+            PG = False
+
+    elif Play.lower() in ["lb"]:
+       f = open("demofile.txt", "r")
+       print(f.read())
+
+
+       #separate the data by commas and save the data to a list
+       #print(f.read())
+       '''read_values=f.read()
+       split_values = read_values.split("-")
+       LBR = 0
+       for LBR in range(len(split_values)):
+           LBU = split_values[LBR]
+           LBS = split_values[LBR]
+           if (LBU == '\n'):
+               continue
+           else:   
+                print(LBU, "has a score of", LBS)'''
+           
+
+    else:
+        print("You are no fun") # oh no youre no fun
+        PG = False
